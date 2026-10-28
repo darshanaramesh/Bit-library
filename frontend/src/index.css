@@ -1,0 +1,12 @@
+/* Global stylesheet entry – imports every design layer in order. */
+@import './styles/tokens.css';
+@import './styles/base.css';
+@import './styles/components.css';
+@import './styles/layout.css';
+@import './styles/landing.css';
+@import './styles/auth.css';
+@import './styles/dashboard.css';
+@import './styles/resources.css';
+@import './styles/seats.css';
+@import './styles/manage.css';
+@import './styles/chatbot.css';

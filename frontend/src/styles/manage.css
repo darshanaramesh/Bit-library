@@ -1,0 +1,301 @@
+/* ==========================================================================
+   Management pages – users/resources/seats/reservations, access matrix,
+   profile, bookings, settings
+   ========================================================================== */
+
+.split-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 1080px) {
+  .split-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cell-user {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+}
+
+.cell-user b {
+  display: block;
+  font-size: 0.87rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.cell-user span {
+  font-size: 0.75rem;
+  color: var(--text-3);
+}
+
+/* Access control matrix */
+
+.matrix {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+.matrix th,
+.matrix td {
+  padding: 13px 14px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.matrix thead th {
+  background: var(--surface-2);
+  border-top: none;
+  font-size: 0.73rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-3);
+  font-weight: 700;
+}
+
+.matrix th:first-child,
+.matrix td:first-child {
+  text-align: left;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.perm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.perm.yes {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.perm.no {
+  background: var(--surface-3);
+  color: var(--text-3);
+}
+
+.perm.limited {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.matrix-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+  font-size: 0.8rem;
+  color: var(--text-2);
+}
+
+.matrix-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* Profile */
+
+.profile-hero {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 24px;
+  background: linear-gradient(135deg, var(--navy) 0%, #1b3b7a 100%);
+  border-radius: var(--radius-lg);
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.profile-hero .avatar {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  border: 3px solid rgba(255, 255, 255, 0.35);
+}
+
+.profile-hero h2 {
+  color: #fff;
+  font-size: 1.35rem;
+}
+
+.profile-hero .who {
+  font-size: 0.86rem;
+  color: #b9c7e4;
+  margin-top: 4px;
+}
+
+.profile-hero .chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.profile-hero .chip {
+  background: rgba(255, 255, 255, 0.14);
+  color: #e4ebf9;
+}
+
+.profile-hero .hero-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.profile-hero .btn-outline {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+.profile-hero .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.mini-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+}
+
+.mini-stat {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-2);
+  text-align: center;
+}
+
+.mini-stat b {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.mini-stat span {
+  font-size: 0.75rem;
+  color: var(--text-2);
+}
+
+/* Settings */
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.settings-row:last-child,
+.settings-row.flush {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.settings-row .info b {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.settings-row .info span {
+  font-size: 0.79rem;
+  color: var(--text-3);
+  line-height: 1.5;
+}
+
+.danger-zone {
+  border-color: var(--danger-border);
+  background: var(--danger-soft);
+}
+
+.danger-zone .card-title {
+  color: var(--danger);
+}
+
+/* Bookings */
+
+.booking-detail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.booking-detail .icon-tile {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.booking-detail b {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
+.booking-detail span {
+  font-size: 0.76rem;
+  color: var(--text-3);
+}
+
+.summary-hero {
+  text-align: center;
+  padding: 8px 0 16px;
+}
+
+.summary-hero .big {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.03em;
+}
+
+.summary-hero .lbl {
+  font-size: 0.83rem;
+  color: var(--text-2);
+}
+
+/* Access/resource management cards strip */
+
+.strip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.strip-grid > *,
+.floor-grid > *,
+.slot-grid > *,
+.mini-stats > *,
+.samples-grid > * {
+  min-width: 0;
+}
