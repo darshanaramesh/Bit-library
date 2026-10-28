@@ -1,0 +1,20 @@
+-- ============================================================================
+-- BIT Central Library - Digital Resource Access Control Matrix and
+-- Seat Reservation Portal
+-- Schema placeholder
+-- ============================================================================
+--
+-- This file intentionally contains NO tables yet. Database design will be
+-- implemented in a later phase (resources, seats, reservations, roles/RBAC,
+-- audit logs, etc.).
+--
+-- Conventions to follow when the schema is implemented:
+--   * utf8mb4 / utf8mb4_unicode_ci
+--   * snake_case table and column names
+--   * PRIMARY KEY id BIGINT/INT UNSIGNED AUTO_INCREMENT
+--   * created_at / updated_at DATETIME columns
+--   * Foreign keys named fk_<table>_<referenced_table>
+--
+-- Apply with:  mysql -u <user> -p <database_name> < database/schema.sql
+
+-- (tables will be created here later)

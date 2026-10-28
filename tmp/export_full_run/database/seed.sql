@@ -1,0 +1,11 @@
+-- ============================================================================
+-- BIT Central Library - Seed / sample data placeholder
+-- ============================================================================
+--
+-- This file intentionally contains no data yet. It will be filled after
+-- database/schema.sql defines the real tables (e.g. resource categories,
+-- seat zones, roles, demo accounts, sample digital resources).
+--
+-- Apply with:  mysql -u <user> -p <database_name> < database/seed.sql
+
+-- (seed data will be added here later)

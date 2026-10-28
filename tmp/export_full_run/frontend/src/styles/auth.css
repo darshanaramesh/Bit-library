@@ -1,0 +1,395 @@
+/* ==========================================================================
+   Auth pages – login & registration
+   ========================================================================== */
+
+/* Sign-in page uses the registration-style split on desktop but the current
+   build replaces the form side with a single BIT-branded card. */
+
+.auth-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - var(--topbar-h));
+}
+
+.auth-page > .auth-panel + .auth-form-wrap {
+  /* keep the form side centered independently of the brand panel */
+  padding: 48px 32px;
+  background: var(--surface);
+}
+
+/* Brand panel reused from the registration layout */
+
+.auth-panel {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 56px 48px;
+  background: radial-gradient(700px 380px at 20% 10%, #2a4fa8 0%, transparent 65%),
+    linear-gradient(160deg, var(--navy) 0%, #0a1730 100%);
+  color: #c7d3ea;
+}
+
+.auth-panel::after {
+  content: '';
+  position: absolute;
+  right: -80px;
+  bottom: -80px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: rgba(200, 149, 42, 0.16);
+  filter: blur(6px);
+}
+
+.auth-panel h2 {
+  color: #fff;
+  font-size: clamp(1.6rem, 3vw, 2.15rem);
+  margin-top: 18px;
+  line-height: 1.2;
+}
+
+.auth-panel .lead {
+  margin-top: 14px;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #9db1d8;
+  max-width: 440px;
+}
+
+.auth-points {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.auth-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  font-size: 0.89rem;
+  color: #d3ddf1;
+}
+
+.auth-point .tick {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(200, 149, 42, 0.24);
+  color: #f0cd7c;
+}
+
+.auth-quote {
+  position: relative;
+  z-index: 1;
+  margin-top: 34px;
+  padding: 16px 18px;
+  border-left: 3px solid var(--accent);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 0 12px 12px 0;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: #c7d3ea;
+}
+
+.auth-quote b {
+  display: block;
+  margin-top: 8px;
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+.auth-panel .eyebrow {
+  align-self: flex-start;
+}
+
+/* ---------- Login card ---------- */
+
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px;
+  width: 100%;
+}
+
+.login-card {
+  width: min(460px, 100%);
+  padding: 28px 30px 26px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  animation: page-in 0.24s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .login-card {
+    animation: none;
+  }
+}
+
+.login-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 22px;
+}
+
+.login-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #2b5ce6 0%, #1e40af 100%);
+  color: #fff;
+  box-shadow: 0 8px 18px -10px rgba(43, 92, 230, 0.9);
+}
+
+.login-portal-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+}
+
+.login-head {
+  margin-bottom: 24px;
+}
+
+.login-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.login-sub {
+  margin-top: 6px;
+  font-size: 0.92rem;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+.login-form {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.login-field-error {
+  margin-top: 6px;
+  font-size: 0.81rem;
+  color: var(--danger);
+  line-height: 1.4;
+}
+
+.login-password-field {
+  position: relative;
+}
+
+.login-password-field .input-wrap,
+.login-password-field .input {
+  padding-right: 44px;
+}
+
+.login-swap {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  color: var(--text-3);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background var(--transition);
+}
+
+.login-swap:hover {
+  color: var(--text);
+  background: var(--surface-3);
+}
+
+.login-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.login-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.82rem;
+  color: var(--text-2);
+  cursor: pointer;
+}
+
+.login-check input {
+  accent-color: var(--primary);
+}
+
+.login-forgot {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.login-alt {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-2);
+}
+
+.login-alt a {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.login-domain-note {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--text-3);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.login-fine {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--text-2);
+  text-align: center;
+  line-height: 1.5;
+  max-width: 420px;
+  margin-inline: auto;
+}
+
+/* Duplicate registration blocks are kept in this file so the /register page
+   still renders; the login card is the only login-side markup. */
+
+.role-picker {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.role-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  text-align: left;
+  transition: all var(--transition);
+}
+
+.role-option:hover {
+  border-color: #b9c9ef;
+}
+
+.role-option.selected {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  box-shadow: 0 0 0 3px var(--primary-ring);
+}
+
+.role-option .icon-tile {
+  width: 34px;
+  height: 34px;
+}
+
+.role-option b {
+  display: block;
+  font-size: 0.85rem;
+}
+
+.role-option span {
+  font-size: 0.7rem;
+  color: var(--text-3);
+}
+
+.auth-alt {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-2);
+}
+
+.auth-alt a {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.divider-text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0;
+  font-size: 0.76rem;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.divider-text::before,
+.divider-text::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.demo-note {
+  margin-top: 18px;
+  font-size: 0.76rem;
+  color: var(--text-3);
+  text-align: center;
+}
+
+@media (max-width: 940px) {
+  .auth-page {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-panel {
+    display: none;
+  }
+
+  .auth-form-wrap {
+    padding: 36px 20px 56px;
+  }
+
+  .login-page {
+    padding: 36px 20px 56px;
+  }
+}
+
+@media (max-width: 460px) {
+  .role-picker {
+    grid-template-columns: 1fr;
+  }
+}

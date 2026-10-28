@@ -1,0 +1,334 @@
+/* ==========================================================================
+   Dashboard – stats, quick actions, panels, charts, lists
+   ========================================================================== */
+
+/* Grid children never widen their track because of wide content (tables) */
+.dash-grid-2 > *,
+.dash-grid-3 > *,
+.dash-grid-sidebar > *,
+.split-layout > *,
+.stack > *,
+.assistant-grid > *,
+.seat-layout > *,
+.details-grid > * {
+  min-width: 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.dash-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.dash-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.dash-grid-sidebar {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1100px) {
+  .dash-grid-2,
+  .dash-grid-3,
+  .dash-grid-sidebar {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Quick actions */
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.quick-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  height: 100%;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-align: left;
+  transition: all var(--transition);
+}
+
+.quick-action:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+
+.quick-action b {
+  font-size: 0.88rem;
+}
+
+.quick-action span {
+  font-size: 0.75rem;
+  color: var(--text-3);
+}
+
+/* Bar chart */
+
+.bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  height: 172px;
+  padding-top: 8px;
+}
+
+.bar-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  height: 100%;
+}
+
+.bar-value {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-2);
+}
+
+.bar-track {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.bar-fill {
+  display: block;
+  width: min(34px, 80%);
+  border-radius: 7px 7px 0 0;
+  background: linear-gradient(180deg, #3b82f6, var(--primary));
+  transition: height 0.4s ease;
+}
+
+.bar-fill.gold {
+  background: linear-gradient(180deg, #e0b34a, var(--accent));
+}
+
+.bar-label {
+  font-size: 0.72rem;
+  color: var(--text-3);
+}
+
+/* Horizontal breakdown rows */
+
+.breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.breakdown-row .breakdown-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.84rem;
+  margin-bottom: 7px;
+}
+
+.breakdown-row .breakdown-head b {
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.breakdown-row .breakdown-head span {
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Lists */
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.list-item:first-child {
+  padding-top: 0;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.list-item .main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.list-item .title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.list-item .main > span:last-child {
+  min-width: 0;
+}
+
+.list-item .sub {
+  font-size: 0.76rem;
+  color: var(--text-3);
+  margin-top: 2px;
+}
+
+.list-item .side {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+/* Activity feed */
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.feed-item {
+  position: relative;
+  display: flex;
+  gap: 13px;
+  padding: 9px 0 15px;
+}
+
+.feed-item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 36px;
+  bottom: -4px;
+  width: 2px;
+  background: var(--border);
+}
+
+.feed-dot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.feed-body {
+  font-size: 0.85rem;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+.feed-body b {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.feed-time {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.72rem;
+  color: var(--text-3);
+}
+
+/* Announcements */
+
+.announcement {
+  display: flex;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  margin-bottom: 12px;
+}
+
+.announcement > div:last-child {
+  min-width: 0;
+}
+
+.announcement:last-child {
+  margin-bottom: 0;
+}
+
+.announcement h5 {
+  font-size: 0.88rem;
+  margin-bottom: 4px;
+}
+
+.announcement p {
+  font-size: 0.8rem;
+  color: var(--text-2);
+  line-height: 1.55;
+}
+
+.announcement .when {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  margin-top: 6px;
+  display: block;
+}
+
+/* Section intro used across dashboards */
+
+.greeting {
+  margin-bottom: 22px;
+}
+
+.greeting h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.greeting p {
+  margin-top: 5px;
+  font-size: 0.92rem;
+  color: var(--text-2);
+}

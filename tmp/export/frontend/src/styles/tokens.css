@@ -1,0 +1,98 @@
+/* ==========================================================================
+   Design tokens – BIT Central Library portal
+   ========================================================================== */
+
+:root {
+  /* Typography */
+  --font-sans: 'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial,
+    sans-serif;
+
+  /* Surfaces */
+  --bg: #f4f6fb;
+  --bg-alt: #eaeff8;
+  --surface: #ffffff;
+  --surface-2: #f7f9fc;
+  --surface-3: #eef2f8;
+
+  /* Borders */
+  --border: #e3e8f2;
+  --border-strong: #cbd5e1;
+
+  /* Text */
+  --text: #101828;
+  --text-2: #475467;
+  --text-3: #98a2b3;
+
+  /* Brand */
+  --primary: #1e40af;
+  --primary-dark: #16307f;
+  --primary-soft: #eef3ff;
+  --primary-ring: rgba(30, 64, 175, 0.16);
+  --accent: #c8952a;
+  --accent-soft: #fdf6e6;
+  --navy: #122347;
+  --navy-2: #0d1b38;
+
+  /* Status */
+  --success: #15803d;
+  --success-soft: #ecfdf3;
+  --success-border: #a6f4c5;
+  --warning: #b45309;
+  --warning-soft: #fffaeb;
+  --warning-border: #fedf89;
+  --danger: #b42318;
+  --danger-soft: #fef3f2;
+  --danger-border: #fecdca;
+  --info: #0369a1;
+  --info-soft: #f0f9ff;
+  --info-border: #bae6fd;
+
+  /* Zones (seat map) */
+  --zone-male: #1d4ed8;
+  --zone-male-soft: #eff4ff;
+  --zone-female: #be185d;
+  --zone-female-soft: #fdf0f6;
+
+  /* Seat states */
+  --seat-available-bg: #eef4ff;
+  --seat-available-border: #c7d7fe;
+  --seat-available-text: #1e40af;
+  --seat-selected-bg: #1e40af;
+  --seat-selected-border: #16307f;
+  --seat-booked-bg: #e8ecf2;
+  --seat-booked-border: #d5dbe6;
+  --seat-booked-text: #98a2b3;
+  --seat-disabled-bg: #ffffff;
+  --seat-disabled-border: #cbd5e1;
+
+  /* Shape & depth */
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+
+  /* Control metrics – single source of truth for inputs, buttons, tabs */
+  --control-h-sm: 34px;
+  --control-h: 42px;
+  --control-px: 14px;
+  --radius-md: 10px;
+
+  /* Spacing scale (4px base) */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 20px;
+  --s6: 24px;
+  --s8: 32px;
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --shadow: 0 6px 18px -8px rgba(16, 24, 40, 0.16);
+  --shadow-lg: 0 24px 48px -18px rgba(16, 24, 40, 0.32);
+
+  /* Layout */
+  --sidebar-w: 248px;
+  --topbar-h: 68px;
+  --content-max: 1360px;
+
+  --transition: 0.18s ease;
+}
